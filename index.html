@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions- OnPractice Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- No.1.......... -->
+     <!-- First function using type file to save data in file forms.... -->
+    <input type="file" id="get" name="file" onchange="readFile()">
+    <img src="pic3.png" alt="Here will be the image" id="result">
+    <br>
+     <hr>
+    <!-- // No.2..........
+        // Second function using input type radio.... -->
+        <select name="city" id="city" multiple>What's your gender is?
+            <option value="Mumbai">Mumbai</option>
+            <option value="Baghdad">Baghdad</option>
+            <option value="Okara">Okara</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Faisalabad">Faisalabad</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Sans-Fransisco">Sans-Fransisco</option>
+        </select>
+        <span id="get"></span>
+</body>
+    <script>
+
+        // No.1..........
+        // First function using type file to save data in file forms....
+        function readFile()  {
+        var reader = new FileReader();
+        var file = document.getElementById('get').files[0];
+
+        reader.onload = function (e) {
+            document.getElementById('result').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+    
+           // No.2..........
+        // second function using type radio to save data on web browser....
+        var print = document.getElementById('city').option;
+        var value = [];
+        for (var i = 0; i < print.length; i++) {
+            if (print[i].selected) {
+                value.push(print[i].value);
+            }
+            alert(JSON.stringify(value));
+        }
+    </script>
+</html>
