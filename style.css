@@ -18,12 +18,73 @@ body {
     margin: auto;
 }
 #city {
-    width: 300px;
-    margin: 50px auto;
+    width: 500px;
+    margin: 30px auto;
     display: block;
 }
+
 option {
     font-size: 18px;
     letter-spacing: 1px;
     padding: 2px;
+}
+p {
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px;
+}
+span {
+    font-size: 18px;
+    font-weight: 400;
+}
+button {
+    padding: 8px;
+    margin: 0 auto;
+    display: block;
+    width: 120px;
+    color: aliceblue;
+    background: black;
+    font-size: 17px;
+    margin-bottom: 30px;
+    outline: none;
+    border: 1px solid transparent;
+}
+button:hover {
+    background-color: blue;
+    border: 1px solid white;
+    transition: .4s;
+}
+#fruits {
+    width: 500px;
+    margin: 30px auto;
+    display: block;
+}
+.radio {
+    text-align: center;
+    margin: 30px auto;
+}
+.radio .heading {
+    font-size: 23px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    margin: 10px auto 0;
+    display: block;
+    background-color: antiquewhite;
+    width: 300px;
+}
+.radio label {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.radio input {
+    width: 60px;
+}
+#required {
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: blueviolet;
+    padding: 10px 20px;
 }

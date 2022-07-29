@@ -10,7 +10,8 @@
 <body>
      <!-- No.1.......... -->
      <!-- First function using type file to save data in file forms.... -->
-    <input type="file" id="get" name="file" onchange="readFile()">
+    <input type="file" id="get" name="file" onchange="readFile()"> 
+    <span>You can change your image and it will display below:</span>
     <img src="pic3.png" alt="Here will be the image" id="result">
     <br>
      <hr>
@@ -26,12 +27,50 @@
             <option value="Karachi">Karachi</option>
             <option value="Sans-Fransisco">Sans-Fransisco</option>
         </select>
-        <span id="get"></span>
+        <button type="button" onclick="getValues()">Submit Here</button>
+        <p>Your Answer Will print here wait:- &nbsp; <span id="store">Your Selection wil show here.... &nbsp; <mark> Multiple &nbsp; values selection</mark></span>
+
+    <!-- // No.3..........................................
+        // Third function using input "type=radio" for single option selection.... -->        
+     <br>   
+     <hr>
+        <select name="fruits" id="fruits" multiple>What's your gender is?
+            <option value="Peach">Peach</option>
+            <option value="Strawberry">Strawberry</option>
+            <option value="Banana">Banana</option>
+            <option value="Watermelon">watermelon</option>
+            <option value="PineApple">PineApple</option>
+            <option value="Mangoes">Mangoes</option>
+            <option value="Apple">Apple</option>
+            <option value="Orange">Orange</option>
+        </select>
+        <button type="button" onclick="getSubmit()">Print Now</button>
+        <p>Your Answer Will print here wait:- &nbsp; <span id="save">Your Answer is here...You can select just &nbsp; <mark> Single &nbsp; value selection</mark></span>
+
+         <!-- No.4 .............
+         It's about single Radio type values selection ............ -->
+    <br> 
+    <br> 
+    <hr>    
+         <div class="radio"> 
+            <label class="heading">Select your Gender below:</label> 
+            <br>
+                <input type="radio" name="gender" checked="checked" id="male" value="Male">
+                <label for="Male">Male</label>
+                <br>
+                <input type="radio" name="gender" id="female" value="Female">
+                <label for="Femal">Female</label>
+              </div>  
+              <button type="button" onclick="radioFunc()">Select One</button>
+              <br>
+              <h3 id="required">Your Result Will print here......</h3>
+          <br>  <hr>
+
 </body>
     <script>
 
         // No.1..........
-        // First function using type file to save data in file forms....
+        // First function using type="file" to save data in file forms....
         function readFile()  {
         var reader = new FileReader();
         var file = document.getElementById('get').files[0];
@@ -42,15 +81,41 @@
         reader.readAsDataURL(file);
     }
     
-           // No.2..........
+        // No.2..........
         // second function using type radio to save data on web browser....
-        var print = document.getElementById('city').option;
+        function getValues() {
+        var options = document.getElementById('city').options;
+        var options_count = document.getElementById('city').options.length;
         var value = [];
-        for (var i = 0; i < print.length; i++) {
-            if (print[i].selected) {
-                value.push(print[i].value);
+        for (var i = 0; i < options_count; i++) {
+            if (options[i].selected) {
+                value.push(options[i].value);
             }
-            alert(JSON.stringify(value));
+        } 
+        // don't use multiple same id's in html it cause an error...
+           alert(JSON.stringify(value));
+           document.getElementById('store').innerHTML = (JSON.stringify(value));
+    }; 
+
+    // No.3 .............
+    // It's about single Dropdown selection of values............
+    function getSubmit() {
+        var elem = document.getElementById('fruits').value;
+        document.getElementById('save').innerHTML = elem;
+    };
+
+    // No.4 .............
+    // It's about single Dropdown selection of values............
+    function radioFunc() {
+        var radios = document.getElementsByName('gender');
+        var radios_len = radios.length;
+        for (var i = 0; i < radios.length; i++) {
+            if(radios[i].checked) {
+               var required =  prompt("Your gender is " + radios[i].value + " .Enter your name below");
+               document.getElementById('required').innerHTML = " Your name is "+ required + " .";
+            }
         }
+    }
+
     </script>
 </html>
